@@ -1,0 +1,8 @@
+//jobname JOB (,MMVE40-0000),userid,CLASS=q,MSGCLASS=q,
+//   NOTIFY=&SYSUID,COND=(0,NE) 
+/*JOBPARM TIME=1,LINES=1,ROOM=M01A 
+//RENAME   EXEC   PGM=IDCAMS 
+//SYSPRINT  DD  SYSOUT=* 
+//SYSIN     DD  * 
+  ALTER 'aaaa' - 
+    NEWNAME('xxxx')
