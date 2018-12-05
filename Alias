@@ -1,0 +1,14 @@
+//jobname JOB (,MMVE40-0000),userid,CLASS=q,MSGCLASS=q,
+//   NOTIFY=&SYSUID 
+//DELAL1 EXEC PGM=IDCAMS 
+//SYSPRINT DD SYSOUT=* 
+//SYSIN DD * 
+ DELETE 'aaaa' ALIAS 
+ SET MAXCC=0 
+/* 
+//DEFAL1  EXEC PGM=IDCAMS 
+//SYSPRINT  DD SYSOUT=* 
+//SYSIN     DD * 
+ DEFINE ALIAS ( NAME('aaaa') - 
+        RELATE('xxxx')) 
+/*
