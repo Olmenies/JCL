@@ -1,0 +1,30 @@
+//*                                                                   
+//* FOLLOWING IMPLEMENTATION OF SOFTWARE UPGRADE ON ALL SYSTEMS,      
+//* BACKUP/DELETE THE OLD RELEASE.  RUN ON A DEVELOPMENT/PROD SYSTEM  
+//*                                                                   
+//   SET RUNDATE='mmmddyy'          <==CHANGE TO ACTUAL RUNDATE MMMD  
+//   EXPORT SYMLIST=(PROD,OLDREL)                                     
+//   SET PROD=product               <==CHANGE TO PRODUCT QUALIFIER    
+//   SET OLDREL=release             <==CHANGE TO OLD PRODUCT RELEASE  
+//*                                                                   
+//*                                                                   
+//DUMP     EXEC PGM=ADRDSSU,REGION=6M                                 
+//SYSPRINT DD  SYSOUT=*                                               
+//OUT      DD  DSN=SFTW.&PROD..&OLDREL..DFDSS.BACKUP.&RUNDATE,        
+//             DISP=(,CATLG),UNIT=VTSTAPE                             
+//SYSIN    DD  *,SYMBOLS=JCLONLY                                      
+ DUMP DS(INCLUDE(SFTW.&PROD..&OLDREL..**)) -                          
+      OUTDD(OUT) ALLD(*) ALLX SPHERE                                  
+/*                                                                    
+//   IF RC <= 4                                                       
+//   THEN                                                             
+//*                                                                   
+//DELETE   EXEC PGM=ADRDSSU,REGION=6M                                 
+//SYSPRINT DD  SYSOUT=*                                               
+//NOTAPE   DD  DUMMY                                                  
+//SYSIN    DD  *,SYMBOLS=JCLONLY                                      
+ DUMP DS(INCLUDE(SFTW.&PROD..&OLDREL..**) -                           
+         EXCLUDE(SFTW.&PROD..&OLDREL..$INSTALL)) -                    
+      OUTDD(NOTAPE) DELETE PURGE WAIT(0,0)                            
+//*                                                                   
+//   ENDIF                                       
