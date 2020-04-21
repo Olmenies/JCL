@@ -1,0 +1,12 @@
+//*
+//* Rename using IEHPROGM.
+//* Note: X char must be on col 72
+//* Continuation must start on col 16
+//*
+//RENAME   EXEC PGM=IEHPROGM                                            
+//SYSPRINT DD SYSOUT=*                                                  
+//SHRVOL   DD UNIT=3390,VOL=SER=volume,DISP=SHR                         
+//SYSIN    DD *                                                         
+   RENAME  NEWNAME=qqqq,                  X
+               VOL=3390=Z73SY3,DSNAME=xxxx
+               
