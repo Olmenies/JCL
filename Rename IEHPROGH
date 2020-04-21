@@ -8,5 +8,5 @@
 //SHRVOL   DD UNIT=3390,VOL=SER=volume,DISP=SHR                         
 //SYSIN    DD *                                                         
    RENAME  NEWNAME=qqqq,                  X
-               VOL=3390=Z73SY3,DSNAME=xxxx
+               VOL=3390=volume,DSNAME=xxxx
                
