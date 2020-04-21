@@ -1,0 +1,4 @@
+//STEP01   EXEC PGM=IDCAMS                                            
+//SYSPRINT DD   SYSOUT=*                                              
+//SYSIN    DD   *                                                     
+ DEF NVSAM(NAME( qqqq  ) DEVT(0000) VOL(&SYSR3))
