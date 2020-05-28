@@ -1,0 +1,9 @@
+//         IF (RC EQ 0) THEN 
+//STEP02   EXEC PGM=pgm,PARM=AUTH 
+//STEPLIB  DD DSN=hlq.slq.llq,DISP=SHR 
+//SYSLIB   DD DSN=hlq.slq.llq,DISP=SHR 
+//SYSPRINT DD SYSOUT=* 
+//SYSIN    DD * 
+	code
+/* 
+//         ENDIF 
