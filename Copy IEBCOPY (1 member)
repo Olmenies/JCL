@@ -1,0 +1,10 @@
+//*
+//* Copy and replace one member
+//*
+//STEP01   EXEC PGM=IEBCOPY                                          
+//SYSPRINT DD   SYSOUT=*                                             
+//INDSN1   DD   DISP=SHR,DSN=hlq.slq.llq
+//OUTDSN1  DD   DISP=SHR,DSN=hlq.slq.llq
+//SYSIN    DD   *                                                    
+ C INDD=((INDSN1,R)),OUTDD=OUTDSN1                                   
+ C INDD=((INDSN2,R)),OUTDD=OUTDSN2                                   
