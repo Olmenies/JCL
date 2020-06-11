@@ -1,0 +1,10 @@
+//DUMP     EXEC PGM=ADRDSSU,REGION=6M 
+//SYSPRINT DD  SYSOUT=* 
+//IN       DD  DSN=hlq.slq.llq, 
+//             DISP=SHR 
+//OUT      DD  UNIT=3390,VOL=SER=volume,DISP=SHR 
+//SYSIN    DD  * 
+ RESTORE DS(INCLUDE(hlq.slq.**)) - 
+      INDD(IN) OUTDD(OUT) 
+/* 
+// 
