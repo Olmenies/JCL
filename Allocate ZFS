@@ -1,0 +1,37 @@
+//DEFINE  EXEC PGM=IDCAMS 
+//SYSPRINT DD  SYSOUT=H 
+//SYSDUMP  DD  SYSOUT=H 
+//AMSDUMP  DD  SYSOUT=H 
+//SYSIN    DD  * 
+  DEFINE CLUSTER (NAME(hlq.slq.ZFS) - 
+         VOLUMES(volume) - 
+         LINEAR CYL(600 50) SHAREOPTIONS(3)) 
+//* 
+//FORMAT  EXEC PGM=IOEAGFMT,REGION=0M, 
+//             PARM=('-aggregate hlq.slq.ZFS -compat') 
+//SYSPRINT DD  SYSOUT=H 
+//STDOUT   DD  SYSOUT=H 
+//STDERR   DD  SYSOUT=H 
+//SYSUDUMP DD  SYSOUT=H 
+//CEEDUMP  DD  SYSOUT=H 
+//* 
+//MAKEDIR EXEC PGM=IKJEFT01 
+//SYSTSPRT   DD  SYSOUT=* 
+//STDOUT   DD  SYSOUT=* 
+//BPXOUT   DD  SYSOUT=* 
+//SYSTSIN  DD   * 
+ BPXBATCH SH + 
+ mkdir -m 755 -p + 
+ /path/path/path 
+// 
+// Check from here. You might need to mount via ISHELL
+//
+//MOUNT   EXEC PGM=IKJEFT01 
+//SYSTSPRT DD SYSOUT=* 
+//SYSTSIN DD * 
+  MOUNT FILESYSTEM(hlq.slq.ZFS) + 
+        MOUNTPOINT('/_PRDS/IBMMVS/isiscomm/') + 
+        TYPE(ZFS) + 
+        MODE(RDWR) + 
+        PARM(AGGRFULL(90,5)) 
+//* 
