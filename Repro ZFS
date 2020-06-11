@@ -1,0 +1,12 @@
+//REPRO1   EXEC PGM=IDCAMS 
+//SYSPRINT DD SYSOUT=* 
+//SYSOUT   DD SYSOUT=* 
+//SYSDUMP  DD SYSOUT=* 
+//AMSDUMP  DD SYSOUT=* 
+//INDD     DD DSN=hlq.slq.ZFS,DISP=SHR
+//OUTDD    DD DSN=hlq.slq.ZFS, 
+//         DISP=(NEW,CATLG,CATLG),VOL=SER=volume, 
+//         LIKE=hlq.slq.ZFS 
+//SYSIN  DD * 
+   REPRO INFILE(INDD) OUTFILE(OUTDD) 
+/* 
