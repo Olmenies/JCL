@@ -6,5 +6,6 @@
 //INDSN1   DD   DISP=SHR,DSN=hlq.slq.llq
 //OUTDSN1  DD   DISP=SHR,DSN=hlq.slq.llq
 //SYSIN    DD   *                                                    
- C INDD=((INDSN1,R)),OUTDD=OUTDSN1                                   
- C INDD=((INDSN2,R)),OUTDD=OUTDSN2                                   
+ C INDD=((INDSN1,R)),OUTDD=OUTDSN1                                     
+ SELECT  MEMBER=((memberin,memberout,R))
+ INDD=INE
