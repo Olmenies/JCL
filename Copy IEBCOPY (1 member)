@@ -8,4 +8,3 @@
 //SYSIN    DD   *                                                    
  C INDD=((INDSN1,R)),OUTDD=OUTDSN1                                     
  SELECT  MEMBER=((memberin,memberout,R))
- INDD=INE
