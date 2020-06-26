@@ -1,0 +1,26 @@
+//* DUMP FILES TO BE DEPLOYED ON xxxx'S ENVIRONMENT AND                 
+//* TRANSFER IT VIA FTP. UPDATE 'IPDEST' VALUE TO MATCH xxxx IP ADDRESS 
+//         SET IPDEST=ip.direction.here
+//STEP01   EXEC PGM=IEFBR14                                             
+//FILE     DD DSN=HLQ.SQL.LLQ.$SFTWDMP,                          
+//         SPACE=(TRK,0),DISP=(MOD,DELETE,DELETE)                       
+//STEP02   EXEC PGM=ADRDSSU                                             
+//SYSPRINT DD SYSOUT=*                                                  
+//FILE     DD DSN=HLQ.SQL.LLQ.$SFTWDMP,DISP=(,CATLG,DELETE),     
+//         SPACE=(CYL,(1500,1),RLSE)                                    
+//SYSIN    DD *                                                         
+  DUMP OUTDD(FILE) TOL(ENQF) COMPRESS ALLDATA(*) ALLEXCP -              
+  DATASET(INCLUDE(HLQ.SQL.LLQ.**) -                              
+          EXCLUDE(HLQ.SQL.LLQ.$SFTWDMP))                         
+/*                                                                      
+//STEP03   EXEC PGM=FTP,PARM='&IPDEST (EXIT'                            
+//SYSPRINT DD SYSOUT=*                                                  
+//OUTPUT   DD SYSOUT=*                                                  
+//INPUT    DD *                                                         
+USER PASSWORD ;                                                         
+EBCDIC                                                                  
+BLOCK                                                                   
+SITE BLKSIZE=27998 RECFM=U LRECL=0 TRACKS PRI=900                       
+PUT 'HLQ.SQL.LLQ.$SFTWDMP'                                       
+QUIT                                                                    
+/*                                                                      
