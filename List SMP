@@ -1,0 +1,17 @@
+//*                                             
+//* JCLILB = PDS where the prod SMPE's procedure is stored
+//* Procedure name might not be SMPE.
+//* Job used to list DDEFs                                            
+//*                                             
+//JCL   JCLLIB ORDER=hlq.slq.llq
+//STEP01  EXEC SMPE                             
+//SMPCNTL  DD  *                                
+  SET BDY(global) .                             
+    LIST DDDEF  .                               
+                                                
+  SET BDY(target) .                            
+    LIST DDDEF  .                               
+                                                
+  SET BDY(distribution) .                            
+    LIST DDDEF  .                               
+/*
