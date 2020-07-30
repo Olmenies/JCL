@@ -1,0 +1,9 @@
+//*                              
+//*  LIST prd SYSMODs
+//*                              
+//STEP01   EXEC smpeproc         
+//SMPCNTL  DD    *               
+ SET BDY(zone).                
+  LIST SYSMODS FORFMID(fmid) .
+/*                               
+//                               
