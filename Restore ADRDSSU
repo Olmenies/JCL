@@ -5,6 +5,6 @@
 //OUT      DD  UNIT=3390,VOL=SER=volume,DISP=SHR 
 //SYSIN    DD  * 
  RESTORE DS(INCLUDE(hlq.slq.**)) - 
-      INDD(IN) OUTDD(OUT) 
+      INDD(IN) OUTDD(OUT) CALTALOG
 /* 
 // 
