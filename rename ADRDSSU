@@ -1,0 +1,17 @@
+//*
+//* Job used to rename with ADRDSSU
+//*
+//STEP1  EXEC  PGM=ADRDSSU,REGION=6M                    
+//SYSPRINT  DD  SYSOUT=*                                
+//OUTVOL1  DD    VOL=SER=volume,UNIT=3390,DISP=SHR      
+//SYSIN    DD    *                                      
+ COPY DATASET(INCLUDE(hlq.slq.tlq.**))      -        
+      ALLDATA(*) -                                      
+      ALLEXCP -                                         
+      CANCELERROR -                                     
+      CATALOG -                                         
+      OUTDDNAME(OUTVOL1) -                              
+      RENAMEU(hlq.slq.tlq.**,nhlq.nslq.ntlq.**) -  
+      SHARE -                                           
+      WAIT(0,0)                                         
+/*                                       
