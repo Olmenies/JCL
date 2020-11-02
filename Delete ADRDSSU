@@ -11,4 +11,3 @@
          EXCLUDE(SFTW.&PROD..&OLDREL..$INSTALL)) -
       OUTDD(NOTAPE) DELETE PURGE WAIT(0,0) 
 //* 
-//   ENDIF 
