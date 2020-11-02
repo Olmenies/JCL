@@ -1,3 +1,8 @@
+//   SET RUNDATE='MMMDDYY'       
+//   EXPORT SYMLIST=(PROD,OLDREL)
+//   SET PROD=JOBSCN             
+//   SET OLDREL=                 
+***
 //DELETE   EXEC PGM=ADRDSSU,REGION=6M 
 //SYSPRINT DD  SYSOUT=* 
 //NOTAPE   DD  DUMMY 
