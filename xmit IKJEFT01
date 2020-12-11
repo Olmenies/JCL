@@ -1,0 +1,9 @@
+//STEP01 EXEC PGM=IKJEFT01,DYNAMNBR=05                       
+//SYSTSPRT DD  SYSOUT=*                                      
+//OUTDD    DD  DSN=outdsn,                  
+//             DISP=(NEW,CATLG,DELETE),                      
+//             DCB=(LRECL=80,BLKSIZE=3120,DSORG=PS,RECFM=FB),
+//             SPACE=(CYL,(310,10)),UNIT=SYSALLDA            
+//SYSTSIN  DD  *                                             
+TRANSMIT,P390.GKH1,DSNAME('indsn'), + 
+OUTDDNAME(OUTDD)         
