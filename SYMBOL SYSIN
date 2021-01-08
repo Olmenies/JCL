@@ -1,0 +1,5 @@
+//SYSTSIN  DD  *,SYMBOLS=JCLONLY -> This allows you to use a symbol on a SYSIN.
+  MOUNT FILESYSTEM('&DPLOYHLQ..CEG1ZFS1')
+        MOUNTPOINT('&DPLOYDIR')       +
+        TYPE(ZFS) MODE(RDWR)
+/*
