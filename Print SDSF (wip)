@@ -1,5 +1,10 @@
-//SDSFCMD0 JOB (D03,07TS),'IBM-MVS',CLASS=A,MSGLEVEL=(1,1),REGION=0M,
-//         MSGCLASS=X,NOTIFY=&SYSUID                                 
+//*                                                                  
+//* JOB USED TO PRINT A DDNAME OF A SUBMITTED JOB ON A PS DATA SET   
+//*                                                                  
+//STEP01  EXEC PGM=IEFBR14                                           
+//DELFILE DD DISP=(MOD,DELETE,DELETE),SPACE=(TRK,0),                 
+//          DSN=GF77.SDSF.OUTPUT                                     
+//*                                                                  
 //STEP01  EXEC PGM=SDSF                                              
 //ISFOUT DD SYSOUT=*                                                 
 //REPORT DD DSN=GF77.SDSF.OUTPUT,DISP=(,CATLG,DELETE),               
@@ -10,8 +15,8 @@ PREFIS *
 ST                                                                   
 PRINT FILE REPORT                                                    
 FIND 'STMIVP00'                                                      
-++//X                                                                
-FIND 'STMIVP00' LAST                                                 
-++//                                                                 
+++?                                                                  
+FIND 'SYSOUT'                                                        
+++X                                                                  
 PRINT CLOSE                                                          
 /*                                                                   
