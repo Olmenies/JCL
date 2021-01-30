@@ -1,0 +1,17 @@
+//SDSFCMD0 JOB (D03,07TS),'IBM-MVS',CLASS=A,MSGLEVEL=(1,1),REGION=0M,
+//         MSGCLASS=X,NOTIFY=&SYSUID                                 
+//STEP01  EXEC PGM=SDSF                                              
+//ISFOUT DD SYSOUT=*                                                 
+//REPORT DD DSN=GF77.SDSF.OUTPUT,DISP=(,CATLG,DELETE),               
+//          SPACE=(TRK,(300,100),RLSE),RECFM=FB,LRECL=133,DSORG=PS   
+//ISFIN DD *                                                         
+OWNER *                                                              
+PREFIS *                                                             
+ST                                                                   
+PRINT FILE REPORT                                                    
+FIND 'STMIVP00'                                                      
+++//X                                                                
+FIND 'STMIVP00' LAST                                                 
+++//                                                                 
+PRINT CLOSE                                                          
+/*                                                                   
