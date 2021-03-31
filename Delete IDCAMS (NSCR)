@@ -1,5 +1,6 @@
 //*                                                                     
 //* DELETE - UNCATALOG DSNS (Delete no scratch)                                             
+//* Note: to delete the dataset, you have to delete with scratch (default)
 //*                                                                     
 //DELETE   EXEC PGM=IDCAMS                                              
 //SYSPRINT DD   SYSOUT=*                                                
