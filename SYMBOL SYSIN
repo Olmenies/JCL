@@ -1,5 +1,36 @@
-//SYSTSIN  DD  *,SYMBOLS=JCLONLY -> This allows you to use a symbol on a SYSIN.
-  MOUNT FILESYSTEM('&DPLOYHLQ..CEG1ZFS1')
-        MOUNTPOINT('&DPLOYDIR')       +
-        TYPE(ZFS) MODE(RDWR)
-/*
+//*                                                                  
+//* COPY SLQ FILES FOR BKOUT UPGRADE                                 
+//*                                                                  
+//       EXPORT SYMLIST=*                                            
+//       SET LPAR=QQQQ                                               
+//       SET DATE=DMMDDYY                                            
+//*                                                                  
+//STEP1  EXEC  PGM=ADRDSSU,REGION=6M                                 
+//SYSPRINT  DD  SYSOUT=*                                             
+//OUTVOL1  DD    VOL=SER=volume,UNIT=unit,DISP=SHR                   
+//SYSIN    DD    *                                                   
+ COPY DATASET(INCLUDE(                   -                           
+                HLQ.SLQ.LLQ1             -                          
+                HLQ.SLQ.LLQ2             -                          
+                HLQ.SLQ.LLQ3             -                          
+                HLQ.SLQ.LLQ4             -                          
+                HLQ.SLQ.LLQ5             -                          
+                HLQ.SLQ.LLQ6             -                          
+                                      ))   -                         
+      ALLDATA(*) -                                                   
+      ALLEXCP -                                                      
+      CANCELERROR -                                                  
+      CATALOG -                                                      
+      OUTDDNAME(OUTVOL1) -                                           
+      RENAMEU(         <                         -                    
+        (HLQA.SLQ.LLQ1,HLQB.SLQ.&LPAR..LLQ1.&DATE) -
+        (HLQA.SLQ.LLQ2,HLQB.SLQ.&LPAR..LLQ2.&DATE) -
+        (HLQA.SLQ.LLQ3,HLQB.SLQ.&LPAR..LLQ3.&DATE) -
+        (HLQA.SLQ.LLQ4,HLQB.SLQ.&LPAR..LLQ4.&DATE) -
+        (HLQA.SLQ.LLQ5,HLQB.SLQ.&LPAR..LLQ5.&DATE) -
+        (HLQA.SLQ.LLQ6,HLQB.SLQ.&LPAR..LLQ6.&DATE) -
+         )-                                                          
+      SHARE -                                                        
+      WAIT(0,0)                                                      
+/*                                                                   
+//  
