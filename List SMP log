@@ -1,0 +1,11 @@
+//*                                                      
+//*  LIST ZEKE 620 SYSMODS                               
+//*                                                      
+//STEP01   EXEC SMPZK620                                 
+//SMPCNTL  DD    *                                       
+  SET BDY(zone).                                        
+  LIST LOG(mm dd yy,mm dd yy) . /* START AND END DATES */
+/*                                                       
+//                                                       
+
+*Note: To see the dates in which a PTF was applied list the log, save the file and look for GIM22701I
