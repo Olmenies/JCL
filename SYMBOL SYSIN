@@ -8,7 +8,7 @@
 //STEP1  EXEC  PGM=ADRDSSU,REGION=6M                                 
 //SYSPRINT  DD  SYSOUT=*                                             
 //OUTVOL1  DD    VOL=SER=volume,UNIT=unit,DISP=SHR                   
-//SYSIN    DD    *                                                   
+//SYSIN    DD    *,SYMBOLS=JCLONLY                                                   
  COPY DATASET(INCLUDE(                   -                           
                 HLQ.SLQ.LLQ1             -                          
                 HLQ.SLQ.LLQ2             -                          
