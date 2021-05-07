@@ -1,0 +1,10 @@
+//jobname  JOB 
+//stepname EXEC PGM=IEBCOPY
+//SYSPRINT DD SYSOUT=* 
+//SYSUT1   DD DSN=dsname,DISP=SHR 
+//SYSUT2   DD DSN=dsname,DISP=(NEW,CATLG),
+//     LIKE=SYSUT1, 
+//     UNIT=unit,VOL=SER=volser
+//SYSIN    DD *
+    COPY INDD=SYSUT1,OUTDD=SYSUT2
+/* 
