@@ -1,0 +1,10 @@
+//*
+//* Job used to terse datasest
+//*
+//TERSE    EXEC PGM=TRSMAIN,PARM='PACK'                                 
+//INFILE   DD   DISP=SHR,DSN=input.dataset  
+//SYSPRINT DD   SYSOUT=*                                                
+//OUTFILE  DD   DISP=(NEW,CATLG,DELETE),UNIT=3390,VOL=SER=volume,       
+//         DSN=output.dataset,               
+//         SPACE=(CYL,(500,500),RLSE)                                   
+
