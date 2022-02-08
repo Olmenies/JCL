@@ -1,0 +1,10 @@
+//DUMP     EXEC PGM=ADRDSSU,REGION=6M                     
+//SYSPRINT DD  SYSOUT=*                                   
+//IN       DD  DSN=SFTW.ASG.Y2022V01.DFDSS.BACKUP.MMMDDYY,
+//             DISP=SHR,UNIT=TAPE                         
+//OUT      DD  UNIT=3390,VOL=SER=SFTW16,DISP=SHR          
+//SYSIN    DD  *                                          
+ RESTORE DS(INCLUDE(SFTW.**)) -                           
+      INDD(IN) OUTDD(OUT)                                 
+/*                                                        
+//                                                        
