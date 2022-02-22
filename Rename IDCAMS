@@ -3,5 +3,5 @@
 //RENAME   EXEC   PGM=IDCAMS 
 //SYSPRINT  DD  SYSOUT=* 
 //SYSIN     DD  * 
-  ALTER 'qqqq' - 
+  ALTER 'aaaa' - 
     NEWNAME('xxxx')
