@@ -1,0 +1,9 @@
+//STEP01 EXEC PGM=IEBGENER                                   
+//SYSPRINT DD SYSOUT=*                                       
+//SYSUDUMP DD SYSOUT=*                                       
+//SYSUT1   DD DISP=SHR,                                      
+//         DSN=SYSU.SYSDUMP.SI50.D220315.T110753.S00001D     
+//SYSUT2   DD DSN=GF77.SYSDUMP.SI50.D220315.T110753.S00001D, 
+//            DISP=(,CATLG,DELETE),SPACE=(CYL,(500,50),RLSE),
+//            DCB=*.SYSUT1                                   
+//SYSIN    DD DUMMY                                          
