@@ -1,0 +1,7 @@
+//STEP1    EXEC PGM=IEHPROGM 
+//SYSPRINT DD  SYSOUT=* 
+//DD1      DD  VOL=SER=volume,DISP=OLD,UNIT=3390 
+//SYSIN    DD  * 
+   RENAME VOL=3390=volume,DSNAME=hlq.llq,                     X
+               NEWNAME=newname,MEMBER=oldname 
+/* 
