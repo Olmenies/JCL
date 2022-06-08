@@ -1,0 +1,19 @@
+//ADRDCOPY PROC                                            
+//COPY     EXEC PGM=ADRDSSU                                
+//SYMBOLS  EXPORT SYMLIST=(INDSN,OUTDSN)                   
+//SET      SET INDSN=&INDSN,                               
+//             OUTDSN=&OUTDSN                              
+//DD1      DD UNIT=3390,DISP=SHR,VOL=SER=&VOLSER           
+//SYSPRINT DD SYSOUT=*                                     
+//SYSIN    DD *,SYMBOLS=JCLONLY                            
+  COPY DATASET(INCLUDE( -                                  
+                       &INDSN. -                           
+                      )) -                                 
+   LOGINDDNAME(DD1) OUTDDNAME(DD1) -                       
+   WAIT(0,0) TOL(ENQF) ALLDATA(*) ALLE SPHERE CAT -        
+   RENAMEU( -                                              
+            (&INDSN., -                                    
+             &OUTDSN.)  -                                  
+          )                                                
+/*                                                         
+// PEND                                                    
